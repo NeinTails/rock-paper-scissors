@@ -9,3 +9,25 @@ function getComputerChoice() {
         computerChoice = "Scissors";
     return computerChoice;
 }
+
+function getHumanChoice() {
+    humanChoice = prompt("Choose: Rock, paper scissors?", "");
+    
+    if (humanChoice != null) {
+        humanChoice = humanChoice.toLowerCase();
+    } else {
+        return;
+    }
+
+    if (humanChoice == "rock") {
+        return humanChoice;
+    } else if (humanChoice == "paper") {
+        return humanChoice;
+    } else if (humanChoice == "scissors") {
+        return humanChoice;
+    } else {
+        alert(`Invalid choice! "${humanChoice}" doesn't make any sense!`);
+    }
+}
+
+getHumanChoice();
