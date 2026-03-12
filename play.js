@@ -66,18 +66,23 @@ function playRound(humanChoice, computerChoice) {
             console.log("It's a tie!");
         }
     } else {
-        alert("The game couldn't run because of an error!");
         return;
     }
     console.log(`Round ${roundNumber}: Human: ${humanScore}, Computer: ${computerScore}`);
+    ++roundNumber;
 }
 
 while (roundNumber <= 5) {
         const computerSelection = getComputerChoice();
         const humanSelection = getHumanChoice();
         playRound(humanSelection, computerSelection);
-        ++roundNumber;
     }
+
+if (computerScore > humanScore) {
+    alert("Computer wins. Try again next time. :(");
+} else {
+    alert("Human wins! Great job!");
+}
 }
 
 let humanScore = 0;
