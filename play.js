@@ -30,42 +30,58 @@ function getHumanChoice() {
     }
 }
 
+function playGame() {
+
 function playRound(humanChoice, computerChoice) {
     if (humanChoice == "rock") {
-        if computerChoice == "scissors" {
-            console.log("Human wins!")
-        } else if computerChoice == "paper" {
-            console.log("Computer wins!")
+        if (computerChoice == "scissors") {
+            console.log("Human wins!");
+            ++humanScore;
+        } else if (computerChoice == "paper") {
+            console.log("Computer wins!");
+            ++computerScore;
         } else {
-            console.log("It's a tie!")
+            console.log("It's a tie!");
         }
 
     } else if (humanChoice == "paper") {
-        if computerChoice == "rock" {
-            console.log("Human wins!")
-        } else if computerChoice == "scissors" {
-            console.log("Computer wins!")
+        if (computerChoice == "rock") {
+            console.log("Human wins!");
+            ++humanScore;
+        } else if (computerChoice == "scissors") {
+            console.log("Computer wins!");
+            ++computerScore;
         } else {
-            console.log("It's a tie!")
+            console.log("It's a tie!");
         }
 
     } else if (humanChoice == "scissors") {
-        if computerChoice == "paper" {
-            console.log("Human wins!")
-        } else if computerChoice == "rock" {
-            console.log("Computer wins!")
+        if (computerChoice == "paper") {
+            console.log("Human wins!");
+            ++humanScore;
+        } else if (computerChoice == "rock") {
+            console.log("Computer wins!");
+            ++computerScore;
         } else {
-            console.log("It's a tie!")
+            console.log("It's a tie!");
         }
     } else {
         alert("The game couldn't run because of an error!");
-    } 
+        return;
+    }
+    console.log(`Round ${roundNumber}: Human: ${humanScore}, Computer: ${computerScore}`);
+}
+
+while (roundNumber <= 5) {
+        const computerSelection = getComputerChoice();
+        const humanSelection = getHumanChoice();
+        playRound(humanSelection, computerSelection);
+        ++roundNumber;
+    }
 }
 
 let humanScore = 0;
 let computerScore = 0;
+let roundNumber = 1;
 
-const computerSelection = getComputerChoice();
-const humanSelection = getHumanChoice();
-
-playRound(humanSelection, computerSelection);
+playGame();
