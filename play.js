@@ -2,11 +2,11 @@ function getComputerChoice() {
     let choiceNum = Math.floor(Math.random() * 3);
     let computerChoice;
     if (choiceNum == 0) {
-        computerChoice = "Rock";
+        computerChoice = "rock";
     } else if (choiceNum == 1) {
-        computerChoice = "Paper";
+        computerChoice = "paper";
     } else
-        computerChoice = "Scissors";
+        computerChoice = "scissors";
     return computerChoice;
 }
 
@@ -30,4 +30,42 @@ function getHumanChoice() {
     }
 }
 
-getHumanChoice();
+function playRound(humanChoice, computerChoice) {
+    if (humanChoice == "rock") {
+        if computerChoice == "scissors" {
+            console.log("Human wins!")
+        } else if computerChoice == "paper" {
+            console.log("Computer wins!")
+        } else {
+            console.log("It's a tie!")
+        }
+
+    } else if (humanChoice == "paper") {
+        if computerChoice == "rock" {
+            console.log("Human wins!")
+        } else if computerChoice == "scissors" {
+            console.log("Computer wins!")
+        } else {
+            console.log("It's a tie!")
+        }
+
+    } else if (humanChoice == "scissors") {
+        if computerChoice == "paper" {
+            console.log("Human wins!")
+        } else if computerChoice == "rock" {
+            console.log("Computer wins!")
+        } else {
+            console.log("It's a tie!")
+        }
+    } else {
+        alert("The game couldn't run because of an error!");
+    } 
+}
+
+let humanScore = 0;
+let computerScore = 0;
+
+const computerSelection = getComputerChoice();
+const humanSelection = getHumanChoice();
+
+playRound(humanSelection, computerSelection);
