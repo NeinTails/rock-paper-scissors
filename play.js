@@ -30,9 +30,22 @@ function getHumanChoice() {
     }
 }
 
-function playGame() {
+let buttons = document.querySelector("div.buttons");
+let results = document.querySelector("div.results");
+
+buttons.addEventListener('click', (e) => {
+    const button = e.target.closest("button");
+    const humanChoice = button.id;
+
+    if(button) {
+        playRound(humanChoice, getComputerChoice());
+    }
+});
+
+
 
 function playRound(humanChoice, computerChoice) {
+    //TODO: replace with case
     if (humanChoice == "rock") {
         if (computerChoice == "scissors") {
             console.log("Human wins!");
@@ -72,18 +85,7 @@ function playRound(humanChoice, computerChoice) {
     ++roundNumber;
 }
 
-while (roundNumber <= 5) {
-        const computerSelection = getComputerChoice();
-        const humanSelection = getHumanChoice();
-        playRound(humanSelection, computerSelection);
-    }
 
-if (computerScore > humanScore) {
-    alert("Computer wins. Try again next time. :(");
-} else {
-    alert("Human wins! Great job!");
-}
-}
 
 let humanScore = 0;
 let computerScore = 0;
