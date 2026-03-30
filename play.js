@@ -10,37 +10,17 @@ function getComputerChoice() {
     return computerChoice;
 }
 
-function getHumanChoice() {
-    humanChoice = prompt("Choose: Rock, paper scissors?", "");
-    
-    if (humanChoice != null) {
-        humanChoice = humanChoice.toLowerCase();
-    } else {
-        return;
-    }
-
-    if (humanChoice == "rock") {
-        return humanChoice;
-    } else if (humanChoice == "paper") {
-        return humanChoice;
-    } else if (humanChoice == "scissors") {
-        return humanChoice;
-    } else {
-        alert(`Invalid choice! "${humanChoice}" doesn't make any sense!`);
-    }
-}
-
 function playRound(humanChoice, computerChoice) {
 
     if (humanChoice == "rock") {
         if (computerChoice == "scissors") {
             outcome = "Human wins!";
             ++humanScore;
-            roundNumber++;
+            ++roundNumber;
         } else if (computerChoice == "paper") {
             outcome = "Computer wins!";
             ++computerScore;
-            roundNumber++;
+            ++roundNumber;
         } else {
             outcome = "It's a tie!";
         }
@@ -49,11 +29,11 @@ function playRound(humanChoice, computerChoice) {
         if (computerChoice == "rock") {
             outcome = "Human wins!";
             ++humanScore;
-            roundNumber++;
+            ++roundNumber;
         } else if (computerChoice == "scissors") {
             outcome = "Computer wins!";
             ++computerScore;
-            roundNumber++;
+            ++roundNumber;
         } else {
             outcome = "It's a tie!";
         }
@@ -62,15 +42,16 @@ function playRound(humanChoice, computerChoice) {
         if (computerChoice == "paper") {
             outcome = "Human wins!";
             ++humanScore;
-            roundNumber++;
+            ++roundNumber;
         } else if (computerChoice == "rock") {
             outcome = "Computer wins!";
             ++computerScore;
-            roundNumber++;
+            ++roundNumber;
         } else {
             outcome = "It's a tie!";
         }
     }
+
     gameStatus = `Round ${roundNumber}: Human: ${humanScore}, Computer: ${computerScore}`;
 }
 
