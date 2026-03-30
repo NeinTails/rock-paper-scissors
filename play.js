@@ -32,51 +32,51 @@ function getHumanChoice() {
 
 function playRound(humanChoice, computerChoice) {
 
-    (humanChoice == "rock") {
+    if (humanChoice == "rock") {
         if (computerChoice == "scissors") {
             outcome = "Human wins!";
             ++humanScore;
+            roundNumber++;
         } else if (computerChoice == "paper") {
             outcome = "Computer wins!";
             ++computerScore;
+            roundNumber++;
         } else {
             outcome = "It's a tie!";
-            roundNumber--;
         }
 
     } else if (humanChoice == "paper") {
         if (computerChoice == "rock") {
             outcome = "Human wins!";
             ++humanScore;
+            roundNumber++;
         } else if (computerChoice == "scissors") {
             outcome = "Computer wins!";
             ++computerScore;
+            roundNumber++;
         } else {
             outcome = "It's a tie!";
-            roundNumber--;
         }
 
     } else if (humanChoice == "scissors") {
         if (computerChoice == "paper") {
             outcome = "Human wins!";
             ++humanScore;
+            roundNumber++;
         } else if (computerChoice == "rock") {
             outcome = "Computer wins!";
             ++computerScore;
+            roundNumber++;
         } else {
             outcome = "It's a tie!";
-            break 
         }
-    } else {
-        return;
     }
     gameStatus = `Round ${roundNumber}: Human: ${humanScore}, Computer: ${computerScore}`;
-    ++roundNumber;
 }
 
 let humanScore = 0;
 let computerScore = 0;
-let roundNumber = 1;
+let roundNumber = 0;
 let gameStatus;
 let outcome = "";
 
@@ -88,18 +88,20 @@ buttons.addEventListener('click', (e) => {
     const button = e.target.closest("button");
     const humanChoice = button.id;
 
-    if(button && roundNumber <= 5) {
+    if(button && roundNumber < 5) {
         playRound(humanChoice, getComputerChoice());
         currentScore.textContent = gameStatus;
         roundOutcome.textContent = outcome;
         }
 
-    if (roundNumber === 6) {
+    if (roundNumber === 5) {
         let gameWinner;
         if (humanScore > computerScore) {
             gameWinner = "Human";
         } else if (computerScore > humanScore) {
             gameWinner = "Computer";
+        } else {
+            gameWinner = "No one";
         }
         roundOutcome.textContent = `Game ended! ${gameWinner} is the winner!`;
     }
